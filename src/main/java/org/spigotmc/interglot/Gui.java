@@ -112,7 +112,7 @@ public class Gui extends JFrame {
 
         versionLabel.setText("Minecraft Version");
 
-        minecraftVersion.setText("1_4_R1");
+        minecraftVersion.setText("1_6_R3");
 
         libigot.setIcon(new ImageIcon(getClass().getResource("/libigot.png"))); // NOI18N
 
@@ -204,7 +204,7 @@ public class Gui extends JFrame {
         new SwingWorker() {
             @Override
             protected Object doInBackground() throws Exception {
-                App.process(new File(inputFile.getText()), outputFile.getText(), "v" + minecraftVersion.getText().replace('.', '_'), logger);
+                App.process(new File(inputFile.getText()), outputFile.getText(), 'v' + minecraftVersion.getText().replace('.', '_'), logger);
                 return null;
             }
         }.execute();
