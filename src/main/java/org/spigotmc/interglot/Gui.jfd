@@ -1,0 +1,96 @@
+JFDML JFormDesigner: "6.0.0.0.84" Java: "1.8.0_112" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {space :::p, par l:::p {seq {par t:::p {seq t {comp copyright:::p::p, space :::x, comp transformButton:::p::p}, comp scrollPanel::l:p:740:p}, space s:p::p, par t:::p {comp regexpLabel::l::127:x, comp regexp::l::127:x, comp libigot::l::127:x, comp jScrollPane1::l::127:x}}, seq {par l {comp outputLabel::l:p::p, comp inputLabel::t:p::p}, space s:::p, par l:::p {comp outputFile::::640:x, comp inputFile:::::x}, space ::38:x, par l {comp versionLabel::t:p:127:p, comp minecraftVersion::t:p:127:p}}}, space ::17:x}}"
+			"$verticalGroup": "par l {seq l {space :::p, par b {comp inputFile::b:p::p, comp inputLabel::b:p::p, comp versionLabel::b:p::p}, space :::p, par l {par b {comp outputLabel::b:p::p, comp outputFile::b:p::p}, comp minecraftVersion:::p::p}, space :::p, par l {seq {comp regexpLabel:::p::p, space :::p, comp regexp:::p::p, space :::p, comp libigot:::p::p, space :::p, comp jScrollPane1:::::x}, comp scrollPanel::::523:x}, space :::p, par b {comp transformButton::b:p::p, comp copyright::b:p::p}, space :::p}}"
+		} ) {
+			name: "this"
+			"defaultCloseOperation": 3
+			"title": "Interglot Jar Repackager"
+			"resizable": false
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "inputFile"
+				"editable": false
+				"focusable": false
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "inputFileMouseClicked", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "outputFile"
+				"editable": false
+				"focusable": false
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "outputFileMouseClicked", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "inputLabel"
+				"text": "Input File:"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "outputLabel"
+				"text": "Output File:"
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPanel"
+				add( new FormComponent( "javax.swing.JTextArea" ) {
+					name: "logText"
+					"editable": false
+					"columns": 20
+					"lineWrap": true
+					"rows": 5
+					"text": "Welcome to Interglot. This program enables package renaming across plugins to quickly enable them to work with later CraftBukkit and Spigot versions. Simply select an input file and an output file Minecraft version, and then transform!\nTHIS SOFTWARE IS PROVIDED AS IS AND COMES WITH NO WARRANTY, EXPLICIT OR IMPLIED.\n\n"
+					"wrapStyleWord": true
+					"margin": new java.awt.Insets( 5, 5, 5, 5 )
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "transformButton"
+				"text": "Transform!"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "transformButtonMouseClicked", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "copyright"
+				"text": "Copyright SpigotMC 2017"
+				"alignmentY": 0.6f
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "libigot"
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/libigot.png" )
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "jScrollPane1"
+				add( new FormComponent( "javax.swing.JTextArea" ) {
+					name: "warning"
+					"editable": false
+					"columns": 20
+					"font": new java.awt.Font( "Ubuntu", 0, 11 )
+					"lineWrap": true
+					"rows": 5
+					"text": "This tool is provided to update plugins which might not otherwise work on unmodified\nCraftBukkit builds. Use with caution.\n\nHere is a guy with his foot in his mouth to remind you."
+					"wrapStyleWord": true
+					"focusable": false
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "regexp"
+				"text": "/v[\\d_]+.*?(?=/)"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "regexpLabel"
+				"text": "Regexp:"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "versionLabel"
+				"text": "Minecraft Version:"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "minecraftVersion"
+				"text": "1_6_R3"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"size": new java.awt.Dimension( 910, 665 )
+			"location": new java.awt.Point( 45, 0 )
+		} )
+	}
+}

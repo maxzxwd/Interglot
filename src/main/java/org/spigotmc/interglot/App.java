@@ -23,7 +23,6 @@ import org.objectweb.asm.commons.Remapper;
 import org.objectweb.asm.commons.RemappingClassAdapter;
 
 public final class App {
-    private static final Pattern VERSIONED = Pattern.compile("/v[\\d_]+.*?(?=/)");
     private static final Set<String> REPACKAGED = new HashSet<>(3);
 
     private App() {
@@ -44,7 +43,7 @@ public final class App {
         gui.requestFocus();
     }
 
-    public static void process(File inFile, String outFile, String version, Logger logger) {
+    public static void process(File inFile, String outFile, String version, Logger logger, String regexp) {
         Remapper remapper = new Remapper() {
             @Override
             public String map(String typeName) {
@@ -52,10 +51,11 @@ public final class App {
                     if (typeName.startsWith(pre)) {
 
                         String newName = typeName.substring(0, pre.length() - 1) +
-                            VERSIONED.matcher(typeName.substring(pre.length() - 1))
-                            .replaceFirst('/' + version);
+                            '/' + version +
+                            Pattern.compile(regexp).matcher(typeName.substring(pre.length() - 1))
+                            .replaceFirst("");
 
-                         logger.info(typeName + " -> " + newName);
+                        logger.info(typeName + " -> " + newName);
                         return newName;
                     }
                 }
